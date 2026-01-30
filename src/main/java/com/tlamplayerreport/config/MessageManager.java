@@ -75,4 +75,8 @@ public class MessageManager {
     public void sendMessage(CommandSender sender, String path, Map<String, String> placeholders) {
         sender.sendMessage(getMessage(path, placeholders));
     }
+    
+    public void reload() {
+        loadMessages();
+    }
 }

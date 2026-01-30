@@ -37,6 +37,10 @@ public class ConfigManager {
         guiConfig = YamlConfiguration.loadConfiguration(guiFile);
     }
     
+    public void reload() {
+        reloadConfigs();
+    }
+    
     public void saveGuiConfig() {
         try {
             guiConfig.save(guiFile);
