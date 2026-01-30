@@ -2,7 +2,6 @@
 
 **Advanced Player and Bug Reporting System for Minecraft PaperMC/Folia**
 
-[![License](https://img.shields.io/badge/License-Custom-blue.svg)](LICENSE)
 [![Minecraft](https://img.shields.io/badge/Minecraft-1.16.x--1.21.x-green.svg)](https://papermc.io)
 [![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://adoptium.net)
 
@@ -20,7 +19,6 @@
 - [Commands & Permissions](#-commands--permissions)
 - [Google Sheets Setup](#-google-sheets-setup)
 - [Database Setup](#️-database-setup)
-- [Key System](#-key-system)
 - [Multi-Language Support](#-multi-language-support)
 - [Troubleshooting](#-troubleshooting)
 - [Support](#-support)
@@ -70,11 +68,6 @@
   - Fully customizable language files
   - Easy to add new languages
 
-- **🔐 License Key System**
-  - Secure key validation
-  - Online and offline verification modes
-  - Protection against unauthorized use
-
 - **⚙️ Platform Compatibility**
   - PaperMC 1.16.x - 1.21.x
   - Folia scheduler compatibility
@@ -107,20 +100,12 @@
    - Start or restart your Minecraft server
    - The plugin will generate default configuration files
 
-4. **Configure License Key**
-   - Open `plugins/TLamPlayerReport/config.yml`
-   - Enter your license key:
-     ```yaml
-     license:
-       key: "YOUR-LICENSE-KEY-HERE"
-     ```
-
-5. **Customize Settings** (Optional)
+4. **Customize Settings** (Optional)
    - Edit `config.yml` for main settings
    - Edit `gui.yml` for GUI customization
    - Edit language files in `languages/` folder
 
-6. **Reload the Plugin**
+5. **Reload the Plugin**
    ```
    /tlamplayerreportadmin reload
    ```
@@ -180,14 +165,6 @@
 ### config.yml
 
 The main configuration file for TLamPlayerReport.
-
-#### License Settings
-```yaml
-license:
-  key: "ENTER-YOUR-LICENSE-KEY-HERE"
-  verification-url: "https://api.example.com/verify"
-  online-verification: false  # Set to true for online validation
-```
 
 #### General Settings
 ```yaml
@@ -593,48 +570,6 @@ Tables are created automatically:
 
 ---
 
-## 🔐 Key System
-
-### Obtaining a License Key
-
-1. Contact the author: TranLam (Midnight)
-2. Purchase or request a license key
-3. Receive your unique key
-
-### Configuring Your Key
-
-Edit `config.yml`:
-```yaml
-license:
-  key: "YOUR-LICENSE-KEY-HERE"
-  online-verification: false  # Set true for online validation
-  verification-url: "https://api.example.com/verify"
-```
-
-### Verification Modes
-
-#### Offline Verification (Default)
-- Key validated locally
-- No internet required
-- Faster startup
-
-#### Online Verification
-- Key validated with remote server
-- Prevents key sharing
-- Requires internet connection
-
-### Troubleshooting Keys
-
-**"Invalid license key"**
-- Check for typos in config.yml
-- Ensure no extra spaces or quotes
-- Contact support if purchased
-
-**"Cannot connect to verification server"**
-- Check internet connection
-- Verify verification-url is correct
-- Try offline mode temporarily
-
 ---
 
 ## 🌍 Multi-Language Support
@@ -848,7 +783,7 @@ Contributions are welcome! Please:
 
 ### License
 
-This project uses a custom license. See the key system for usage rights.
+This project is open source and free to use.
 
 ---
 
