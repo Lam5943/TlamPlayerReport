@@ -17,7 +17,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 @Getter
 public class ReportPlugin extends JavaPlugin {
-    
     private ConfigManager configManager;
     private MessageManager messageManager;
     private DatabaseManager databaseManager;
@@ -25,13 +24,16 @@ public class ReportPlugin extends JavaPlugin {
     private DiscordWebhook discordWebhook;
     private GUIManager guiManager;
     private ReportManager reportManager;
-    
+    private ReportChatInputManager reportChatInputManager; // <-- ADD THIS
+
+
     @Override
     public void onEnable() {
         saveDefaultConfig();
         
         this.configManager = new ConfigManager(this);
         this.messageManager = new MessageManager(this);
+        this.reportChatInputManager = new ReportChatInputManager(this);
         
         this.databaseManager = new DatabaseManager(this);
         if (!this.databaseManager.initialize()) {
