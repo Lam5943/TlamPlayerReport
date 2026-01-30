@@ -74,8 +74,6 @@ public class ReportChatInputManager implements Listener {
         waitingPlayers.remove(uuid);
         Bukkit.getScheduler().runTask(plugin, () -> pending.onSubmit.accept(reason));
 
-        String successMsg = plugin.getMessageManager().getMessage("report.success", Collections.emptyMap());
-        player.sendMessage(successMsg);
     }
 }
 
