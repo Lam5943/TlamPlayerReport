@@ -25,3 +25,9 @@ gui:
   no-online-players: "&cNo online players"
   back: "&7« Back"
   close: "&c✖ Close"
+
+report:
+  enter-description: "{prefix} &ePlease type the reason for your report on &b{category}&e in chat."
+  description-too-short: "{prefix} &cYour reason must be at least {min} characters."
+  cancelled: "{prefix} &cReport cancelled. You did not provide a reason in time."
+  success: "{prefix} &aThank you! Your report has been submitted."
