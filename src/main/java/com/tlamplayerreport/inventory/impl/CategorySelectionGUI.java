@@ -52,23 +52,41 @@ public class CategorySelectionGUI extends InventoryGUI {
                 ItemBuilder itemBuilder = new ItemBuilder(material).name(name).lore(lore);
                 
                 InventoryButton button = new InventoryButton(slot, itemBuilder.build(), (player, event) -> {
-                    Report report = Report.builder()
+                String targetName = targetPlayer != null ? targetPlayer.getName() : null;
+
+                // Prompt for chat input after category chosen
+                plugin.getReportChatInputManager().promptForDescription(
+                    player,
+                    reportType,
+                    categoryKey,
+                    () -> {
+                        // onCancel (optional)
+                        if (plugin.getConfig().getBoolean("settings.close-gui-on-report", true)) {
+                            player.closeInventory();
+                        }
+                    },
+                    (reason) -> {
+                        // onSubmit: build and submit report with description
+                        Report report = Report.builder()
                             .reporterUuid(player.getUniqueId())
                             .reporterName(player.getName())
                             .type(reportType)
                             .category(categoryKey)
                             .targetUuid(targetPlayer != null ? targetPlayer.getUniqueId() : null)
-                            .targetName(targetPlayer != null ? targetPlayer.getName() : null)
+                            .targetName(targetName)
+                            .description(reason)
                             .status(ReportStatus.PENDING)
                             .timestamp(System.currentTimeMillis())
                             .build();
-                    
-                    plugin.getReportManager().submitReport(report, player);
-                    
-                    if (plugin.getConfig().getBoolean("settings.close-gui-on-report", true)) {
-                        player.closeInventory();
+
+                        plugin.getReportManager().submitReport(report, player);
+
+                        if (plugin.getConfig().getBoolean("settings.close-gui-on-report", true)) {
+                            player.closeInventory();
+                        }
                     }
-                });
+                );
+            });
                 
                 addButton(button);
             }
