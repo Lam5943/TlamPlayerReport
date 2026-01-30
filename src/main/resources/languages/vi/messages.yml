@@ -25,3 +25,9 @@ gui:
   no-online-players: "&cKhông có người chơi trực tuyến"
   back: "&7« Quay lại"
   close: "&c✖ Đóng"
+
+report:
+  enter-description: "{prefix} &eVui lòng nhập lý do báo cáo về &b{category}&e trong khung chat."
+  description-too-short: "{prefix} &cLý do của bạn phải có ít nhất {min} ký tự."
+  cancelled: "{prefix} &cĐã huỷ báo cáo. Bạn không nhập lý do kịp thời."
+  success: "{prefix} &aCảm ơn! Báo cáo của bạn đã được gửi."
