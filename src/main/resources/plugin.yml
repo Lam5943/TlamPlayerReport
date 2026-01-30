@@ -14,11 +14,21 @@ commands:
   
   tlamplayerreportadmin:
     description: Admin commands for managing reports
-    usage: /tlamplayerreportadmin <list|view|delete|clear> [args]
+    usage: |
+      /tlamplayerreportadmin help - Show help menu
+      /tlamplayerreportadmin list [page] - List all reports
+      /tlamplayerreportadmin view <id> - View report details
+      /tlamplayerreportadmin delete <id> - Delete a report
+      /tlamplayerreportadmin clear - Clear all reports
+      /tlamplayerreportadmin reload - Reload configuration
     permission: tlamplayerreport.admin
-    aliases: [tlpradmin, tlpr, reportadmin]
+    aliases: [tlpradmin, tlpr, tlamplayerreport, reportadmin]
 
 permissions:
+  tlamplayerreport.use:
+    description: Use report command (legacy name)
+    default: true
+  
   tlamplayerreport.report:
     description: Allows using the report command
     default: true
@@ -30,6 +40,7 @@ permissions:
       tlamplayerreport.admin.view: true
       tlamplayerreport.admin.delete: true
       tlamplayerreport.admin.clear: true
+      tlamplayerreport.admin.reload: true
       tlamplayerreport.notify: true
       tlamplayerreport.bypass.cooldown: true
       tlamplayerreport.bypass.limit: true
@@ -44,6 +55,10 @@ permissions:
   
   tlamplayerreport.admin.clear:
     description: Clear all reports
+    default: op
+  
+  tlamplayerreport.admin.reload:
+    description: Reload plugin configuration
     default: op
   
   tlamplayerreport.notify:
