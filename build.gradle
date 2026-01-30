@@ -41,6 +41,19 @@ tasks.withType(JavaCompile) {
 // Shadow task to bundle dependencies into the JAR
 shadowJar {
     archiveClassifier.set('')
+    archiveBaseName.set('TlamPlayerReport')
+    
+    // Exclude duplicate META-INF files that cause conflicts
+    exclude 'META-INF/*.SF'
+    exclude 'META-INF/*.DSA'
+    exclude 'META-INF/*.RSA'
+    exclude 'META-INF/MANIFEST.MF'
+    exclude 'META-INF/NOTICE*'
+    exclude 'META-INF/LICENSE*'
+    exclude 'META-INF/DEPENDENCIES'
+    
+    // Merge service files instead of failing on duplicates
+    mergeServiceFiles()
     
     // Relocate dependencies to avoid conflicts with other plugins
     relocate 'com.zaxxer.hikari', 'com.tlamplayerreport.shaded.hikari'
