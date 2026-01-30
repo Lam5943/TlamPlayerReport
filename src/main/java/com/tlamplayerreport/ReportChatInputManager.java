@@ -50,23 +50,36 @@ public class ReportChatInputManager implements Listener {
             PendingInput pending = waitingPlayers.get(uuid);
             String reason = event.getMessage();
 
-            Map<String, String> placeholders = new HashMap<>();
-            placeholders.put("category", pending.category);
-            placeholders.put("min", String.valueOf(MIN_REASON_LENGTH));
+            // Check for cancel command (case-insensitive)
+            if (reason.trim().equalsIgnoreCase("cancel")) {
+                String cancelledMsg = plugin.getMessageManager().getMessage("report.cancelled-by-player", Collections.emptyMap());
+                player.sendMessage(cancelledMsg);
 
-            if (reason.length() < MIN_REASON_LENGTH) {
-                String tooShortMsg = plugin.getMessageManager().getMessage("report.description-too-short", placeholders);
-                player.sendMessage(tooShortMsg);
+                waitingPlayers.remove(uuid);
+                if (pending.onCancel != null) {
+                    Bukkit.getScheduler().runTask(plugin, pending.onCancel);
+                }
                 return;
             }
-            waitingPlayers.remove(uuid);
-            pending.onSubmit.accept(reason);
 
-            String successMsg = plugin.getMessageManager().getMessage("report.success", Collections.emptyMap());
-            player.sendMessage(successMsg);
+        Map<String, String> placeholders = new HashMap<>();
+        placeholders.put("category", pending.category);
+        placeholders.put("min", String.valueOf(MIN_REASON_LENGTH));
+
+        if (reason.length() < MIN_REASON_LENGTH) {
+            String tooShortMsg = plugin.getMessageManager().getMessage("report.description-too-short", placeholders);
+            player.sendMessage(tooShortMsg);
+            return;
         }
-    }
+        waitingPlayers.remove(uuid);
+        Bukkit.getScheduler().runTask(plugin, () -> pending.onSubmit.accept(reason));
 
+        String successMsg = plugin.getMessageManager().getMessage("report.success", Collections.emptyMap());
+        player.sendMessage(successMsg);
+    }
+}
+
+    
     private static class PendingInput {
         final ReportType type;
         final String category;
