@@ -379,12 +379,12 @@ report:
 
 | Command | Description | Permission | Aliases |
 |---------|-------------|------------|---------|
-| `/tlpr help` | Show help menu | `tlamplayerreport.admin` | `/tlpradmin`, `/reportadmin` |
+| `/tlpr help` | Show help menu | `tlamplayerreport.admin` | `/tlpradmin`, `/tlamplayerreport`, `/reportadmin` |
 | `/tlpr list [page]` | List all reports | `tlamplayerreport.admin.view` | - |
 | `/tlpr view <id>` | View report details | `tlamplayerreport.admin.view` | - |
 | `/tlpr delete <id>` | Delete a report | `tlamplayerreport.admin.delete` | - |
 | `/tlpr clear` | Clear all reports | `tlamplayerreport.admin.clear` | - |
-| `/tlpr reload` | Reload configuration | `tlamplayerreport.admin` | - |
+| `/tlpr reload` | Reload configuration | `tlamplayerreport.admin.reload` | - |
 
 ### Permission Nodes
 
@@ -401,6 +401,7 @@ report:
 | `tlamplayerreport.admin.view` | View all reports | `op` |
 | `tlamplayerreport.admin.delete` | Delete reports | `op` |
 | `tlamplayerreport.admin.clear` | Clear all reports | `op` |
+| `tlamplayerreport.admin.reload` | Reload plugin configuration | `op` |
 | `tlamplayerreport.notify` | Receive report notifications | `op` |
 
 #### Bypass Permissions

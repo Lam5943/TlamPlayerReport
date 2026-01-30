@@ -21,9 +21,10 @@ public class ConfigManager {
     private void loadConfigs() {
         plugin.saveDefaultConfig();
         
-        guiFile = new File(plugin.getDataFolder(), "gui.yml");
+        // Load INVENTORY_GUI.yml as specified in requirements
+        guiFile = new File(plugin.getDataFolder(), "INVENTORY_GUI.yml");
         if (!guiFile.exists()) {
-            plugin.saveResource("gui.yml", false);
+            plugin.saveResource("INVENTORY_GUI.yml", false);
         }
         guiConfig = YamlConfiguration.loadConfiguration(guiFile);
     }
@@ -45,7 +46,7 @@ public class ConfigManager {
         try {
             guiConfig.save(guiFile);
         } catch (IOException e) {
-            plugin.getLogger().severe("Failed to save gui.yml: " + e.getMessage());
+            plugin.getLogger().severe("Failed to save INVENTORY_GUI.yml: " + e.getMessage());
         }
     }
 }
