@@ -5,9 +5,12 @@ plugins {
 group = 'com.tlamplayerreport'
 version = '1.0.0'
 
-// Compatible with Java 17-21; using Java 17 toolchain by default for building.
-sourceCompatibility = '17'
-targetCompatibility = '17'
+// Use Java toolchain (recommended) to target Java 17
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
 
 repositories {
     mavenCentral()
