@@ -49,6 +49,9 @@ public class ReportAdminCommand implements CommandExecutor {
             case "clear":
                 handleClear(sender);
                 break;
+            case "reload":
+                handleReload(sender);
+                break;
             case "help":
                 sendHelp(sender);
                 break;
@@ -169,12 +172,34 @@ public class ReportAdminCommand implements CommandExecutor {
         });
     }
     
+    private void handleReload(CommandSender sender) {
+        if (!sender.hasPermission("tlamplayerreport.admin.reload")) {
+            plugin.getMessageManager().sendMessage(sender, "commands.no-permission");
+            return;
+        }
+        
+        try {
+            plugin.reloadConfig();
+            plugin.getConfigManager().reload();
+            plugin.getMessageManager().reload();
+            
+            sender.sendMessage(plugin.getConfigManager().getGuiConfig().getString("prefix") + 
+                    " §aConfiguration reloaded successfully!");
+        } catch (Exception e) {
+            sender.sendMessage(plugin.getConfigManager().getGuiConfig().getString("prefix") + 
+                    " §cFailed to reload configuration: " + e.getMessage());
+            plugin.getLogger().severe("Error reloading configuration: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
     private void sendHelp(CommandSender sender) {
         sender.sendMessage("§6§l=== TLamPlayerReport Admin Commands ===");
         sender.sendMessage("§e/tlamplayerreportadmin list [status] §7- List all reports");
         sender.sendMessage("§e/tlamplayerreportadmin view §7- Open GUI to view reports");
         sender.sendMessage("§e/tlamplayerreportadmin delete <id> §7- Delete a specific report");
         sender.sendMessage("§e/tlamplayerreportadmin clear §7- Clear all reports");
+        sender.sendMessage("§e/tlamplayerreportadmin reload §7- Reload plugin configuration");
         sender.sendMessage("§e/tlamplayerreportadmin help §7- Show this help message");
     }
 }

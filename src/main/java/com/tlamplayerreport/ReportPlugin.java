@@ -10,7 +10,6 @@ import com.tlamplayerreport.integrations.GoogleSheetsHandler;
 import com.tlamplayerreport.inventory.gui.GUIListener;
 import com.tlamplayerreport.inventory.gui.GUIManager;
 import com.tlamplayerreport.manager.ReportManager;
-import com.tlamplayerreport.security.KeyValidator;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.command.PluginCommand;
@@ -26,18 +25,10 @@ public class ReportPlugin extends JavaPlugin {
     private DiscordWebhook discordWebhook;
     private GUIManager guiManager;
     private ReportManager reportManager;
-    private KeyValidator keyValidator;
     
     @Override
     public void onEnable() {
         saveDefaultConfig();
-        
-        this.keyValidator = new KeyValidator(this);
-        if (!this.keyValidator.validate()) {
-            getLogger().severe("Plugin disabled due to invalid license key!");
-            Bukkit.getPluginManager().disablePlugin(this);
-            return;
-        }
         
         this.configManager = new ConfigManager(this);
         this.messageManager = new MessageManager(this);
