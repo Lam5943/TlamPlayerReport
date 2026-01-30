@@ -1,0 +1,27 @@
+prefix: "&8[&6TLamReport&8]&r"
+
+commands:
+  no-permission: "{prefix} &cYou don't have permission to use this command."
+  player-only: "{prefix} &cOnly players can use this command."
+  invalid-usage: "{prefix} &cUsage: {usage}"
+  cooldown: "{prefix} &cPlease wait {time} seconds before reporting again."
+  max-reports: "{prefix} &cYou have reached the maximum number of pending reports."
+
+report:
+  success: "{prefix} &aYour report has been submitted successfully!"
+  failed: "{prefix} &cFailed to submit report. Please try again."
+  player-not-found: "{prefix} &cPlayer not found."
+  cannot-report-self: "{prefix} &cYou cannot report yourself."
+
+admin:
+  report-notification: "{prefix} &e{player} &7submitted a new &e{type} &7report!"
+  report-deleted: "{prefix} &aReport #{id} has been deleted."
+  reports-cleared: "{prefix} &aCleared {count} reports."
+  no-reports: "{prefix} &cNo reports found."
+  viewing-report: "{prefix} &7Viewing report #{id}"
+
+gui:
+  loading: "&eLoading..."
+  no-online-players: "&cNo online players"
+  back: "&7« Back"
+  close: "&c✖ Close"

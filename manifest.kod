@@ -1,0 +1,6 @@
+include:
+  - google-api-client
+  - google-oauth-client-jetty
+  - google-api-services-sheets
+  - hikari-cp
+  - gson

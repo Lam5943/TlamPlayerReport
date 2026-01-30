@@ -1,0 +1,27 @@
+prefix: "&8[&6TLamReport&8]&r"
+
+commands:
+  no-permission: "{prefix} &cNo tienes permiso para usar este comando."
+  player-only: "{prefix} &cSolo los jugadores pueden usar este comando."
+  invalid-usage: "{prefix} &cUso: {usage}"
+  cooldown: "{prefix} &cPor favor espera {time} segundos antes de reportar nuevamente."
+  max-reports: "{prefix} &cHas alcanzado el número máximo de reportes pendientes."
+
+report:
+  success: "{prefix} &a¡Tu reporte ha sido enviado exitosamente!"
+  failed: "{prefix} &cFallo al enviar el reporte. Por favor intenta de nuevo."
+  player-not-found: "{prefix} &cJugador no encontrado."
+  cannot-report-self: "{prefix} &cNo puedes reportarte a ti mismo."
+
+admin:
+  report-notification: "{prefix} &e{player} &7ha enviado un nuevo reporte de &e{type}&7!"
+  report-deleted: "{prefix} &aEl reporte #{id} ha sido eliminado."
+  reports-cleared: "{prefix} &aEliminados {count} reportes."
+  no-reports: "{prefix} &cNo se encontraron reportes."
+  viewing-report: "{prefix} &7Viendo reporte #{id}"
+
+gui:
+  loading: "&eCargando..."
+  no-online-players: "&cNo hay jugadores en línea"
+  back: "&7« Atrás"
+  close: "&c✖ Cerrar"

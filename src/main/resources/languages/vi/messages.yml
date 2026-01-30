@@ -1,0 +1,27 @@
+prefix: "&8[&6TLamReport&8]&r"
+
+commands:
+  no-permission: "{prefix} &cBạn không có quyền sử dụng lệnh này."
+  player-only: "{prefix} &cChỉ người chơi mới có thể sử dụng lệnh này."
+  invalid-usage: "{prefix} &cCách dùng: {usage}"
+  cooldown: "{prefix} &cVui lòng đợi {time} giây trước khi báo cáo lại."
+  max-reports: "{prefix} &cBạn đã đạt số lượng báo cáo tối đa đang chờ xử lý."
+
+report:
+  success: "{prefix} &aBáo cáo của bạn đã được gửi thành công!"
+  failed: "{prefix} &cGửi báo cáo thất bại. Vui lòng thử lại."
+  player-not-found: "{prefix} &cKhông tìm thấy người chơi."
+  cannot-report-self: "{prefix} &cBạn không thể báo cáo chính mình."
+
+admin:
+  report-notification: "{prefix} &e{player} &7đã gửi một báo cáo &e{type} &7mới!"
+  report-deleted: "{prefix} &aBáo cáo #{id} đã được xóa."
+  reports-cleared: "{prefix} &aĐã xóa {count} báo cáo."
+  no-reports: "{prefix} &cKhông tìm thấy báo cáo nào."
+  viewing-report: "{prefix} &7Đang xem báo cáo #{id}"
+
+gui:
+  loading: "&eĐang tải..."
+  no-online-players: "&cKhông có người chơi trực tuyến"
+  back: "&7« Quay lại"
+  close: "&c✖ Đóng"

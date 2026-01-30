@@ -1,0 +1,128 @@
+license:
+  key: "ENTER-YOUR-LICENSE-KEY-HERE"
+  verification-url: "https://api.example.com/verify"
+  online-verification: false
+
+settings:
+  language: en
+  custom-command: report
+  notify-admins: true
+  close-gui-on-report: true
+  cooldown-seconds: 7200
+  max-reports-per-player: 10
+  
+  report-limits:
+    player-reports-per-day: 5
+    bug-reports-per-day: 3
+    
+  anti-spam:
+    enabled: true
+    duplicate-check: true
+    duplicate-time-window: 3600
+
+database:
+  type: SQLITE
+  
+  mysql:
+    host: localhost
+    port: 3306
+    database: tlamplayerreport
+    username: root
+    password: password
+    pool-size: 10
+    connection-timeout: 30000
+    max-lifetime: 1800000
+  
+  sqlite:
+    file-name: reports.db
+  
+  auto-cleanup:
+    enabled: true
+    days: 30
+    run-interval: 86400
+
+google-sheets:
+  enabled: false
+  credentials-file: credentials.json
+  spreadsheet-id: YOUR_SPREADSHEET_ID_HERE
+  log-on-submit: true
+  log-on-update: false
+
+discord:
+  enabled: false
+  webhook-url: "https://discord.com/api/webhooks/YOUR_WEBHOOK_URL"
+  
+  notifications:
+    new-report: true
+    report-updated: true
+    report-resolved: true
+    
+  embed:
+    color: 15844367
+    author-name: "Player Report System"
+    footer-text: "TLamPlayerReport"
+    thumbnail-url: ""
+    
+  mentions:
+    enabled: false
+    role-id: "YOUR_ROLE_ID"
+    user-ids: []
+
+categories:
+  player:
+    enabled:
+      - cheating
+      - harassment
+      - spam
+      - inappropriate-name
+      - griefing
+      - bug-abuse
+      - other
+    
+    require-evidence: false
+    
+  bug:
+    enabled:
+      - gameplay
+      - visual
+      - performance
+      - command
+      - other
+    
+    require-description: true
+
+gui:
+  update-interval: 20
+  close-on-complete: true
+  
+  sounds:
+    enabled: true
+    open: BLOCK_CHEST_OPEN
+    click: UI_BUTTON_CLICK
+    success: ENTITY_PLAYER_LEVELUP
+    error: ENTITY_VILLAGER_NO
+
+permissions:
+  bypass-cooldown: tlamplayerreport.bypass.cooldown
+  bypass-limit: tlamplayerreport.bypass.limit
+  view-own-reports: tlamplayerreport.view.own
+
+report-expiry:
+  enabled: true
+  days: 30
+  statuses:
+    - RESOLVED
+    - DISMISSED
+
+security:
+  prevent-duplicate-submissions: true
+  duplicate-check-window: 300
+  
+  rate-limiting:
+    enabled: true
+    max-attempts: 3
+    time-window: 60
+    
+  ip-tracking:
+    enabled: false
+    log-file: ip-logs.txt
