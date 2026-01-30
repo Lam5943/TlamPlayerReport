@@ -5,19 +5,17 @@ plugins {
 group = 'com.tlamplayerreport'
 version = '1.0.0'
 
-// Use Java toolchain (recommended) to target Java 17
+// Use Java toolchain (recommended) to target Java 21
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 
 repositories {
     mavenCentral()
     // Paper artifacts (primary)
-    maven { url = uri('https://repo.papermc.org/repository/maven-public/') }
-    // Paper artifacts (fallback mirror)
-    maven { url = uri('https://papermc.io/repo/repository/maven-public/') }
+    maven { url = uri('https://repo.papermc.io/repository/maven-public/') }
 }
 
 dependencies {
@@ -27,11 +25,11 @@ dependencies {
     implementation 'com.google.http-client:google-http-client-gson:1.34.2'
     implementation 'com.google.apis:google-api-services-sheets:v4-rev20230227-2.0.0'
 
-    // Paper API (compileOnly) - set version to match target server. Change as needed.
-    compileOnly 'io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT'
+    // Paper API (compileOnly) - use requested version 1.21.10
+    compileOnly 'io.papermc.paper:paper-api:1.21.10'
 }
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
-    options.release = 17
+    options.release = 21
 }
