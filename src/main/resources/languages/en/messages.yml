@@ -31,3 +31,4 @@ report:
   description-too-short: "{prefix} &cYour reason must be at least {min} characters."
   cancelled: "{prefix} &cReport cancelled. You did not provide a reason in time."
   success: "{prefix} &aThank you! Your report has been submitted."
+  cancelled-by-player: "{prefix} &cReport cancelled. You typed 'cancel'."
