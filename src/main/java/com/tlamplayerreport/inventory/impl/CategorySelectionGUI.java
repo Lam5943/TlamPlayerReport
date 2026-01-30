@@ -80,6 +80,8 @@ public class CategorySelectionGUI extends InventoryGUI {
                             .build();
 
                         plugin.getReportManager().submitReport(report, player);
+                        
+                        player.sendMessage(plugin.getMessageManager().getMessage("report.success", Collections.emptyMap()));
 
                     }
                 );
