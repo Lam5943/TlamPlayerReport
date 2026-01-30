@@ -14,8 +14,10 @@ java {
 
 repositories {
     mavenCentral()
-    // Paper artifacts
-    maven { url 'https://repo.papermc.org/repository/maven-public/' }
+    // Paper artifacts (primary)
+    maven { url = uri('https://repo.papermc.org/repository/maven-public/') }
+    // Paper artifacts (fallback mirror)
+    maven { url = uri('https://papermc.io/repo/repository/maven-public/') }
 }
 
 dependencies {
