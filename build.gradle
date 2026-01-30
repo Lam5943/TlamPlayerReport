@@ -15,10 +15,21 @@ java {
 
 repositories {
     mavenCentral()
-    // Paper artifacts (primary)
-    maven { url = uri('https://repo.papermc.io/repository/maven-public/') }
     // XSeries
-    maven { url = uri('https://jitpack.io') }
+    maven { 
+        url = uri('https://jitpack.io')
+        content {
+            includeGroup 'com.github.cryptomorin'
+        }
+    }
+    // Paper artifacts (primary)
+    maven { 
+        url = uri('https://repo.papermc.io/repository/maven-public/')
+        content {
+            includeGroup 'io.papermc.paper'
+            includeGroup 'io.papermc'
+        }
+    }
 }
 
 dependencies {
