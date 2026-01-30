@@ -54,16 +54,16 @@ public class CategorySelectionGUI extends InventoryGUI {
                 InventoryButton button = new InventoryButton(slot, itemBuilder.build(), (player, event) -> {
                 String targetName = targetPlayer != null ? targetPlayer.getName() : null;
 
+                if (plugin.getConfig().getBoolean("settings.close-gui-on-report", true)) {
+                    player.closeInventory();
+                }
+
                 // Prompt for chat input after category chosen
                 plugin.getReportChatInputManager().promptForDescription(
                     player,
                     reportType,
                     categoryKey,
                     () -> {
-                        // onCancel (optional)
-                        if (plugin.getConfig().getBoolean("settings.close-gui-on-report", true)) {
-                            player.closeInventory();
-                        }
                     },
                     (reason) -> {
                         // onSubmit: build and submit report with description
@@ -81,9 +81,6 @@ public class CategorySelectionGUI extends InventoryGUI {
 
                         plugin.getReportManager().submitReport(report, player);
 
-                        if (plugin.getConfig().getBoolean("settings.close-gui-on-report", true)) {
-                            player.closeInventory();
-                        }
                     }
                 );
             });
