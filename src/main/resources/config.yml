@@ -1,5 +1,5 @@
 settings:
-  menu-title-prefix: "&b&l[MyCustomReport]&r - "
+  menu-title-prefix: "&b&l[TLamPlayerReport]&r - "
   language: en
   custom-command: report
   notify-admins: true
