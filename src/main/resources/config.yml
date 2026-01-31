@@ -1,4 +1,5 @@
 settings:
+  menu-title-prefix: "&b&l[MyCustomReport]&r - "
   language: en
   custom-command: report
   notify-admins: true
