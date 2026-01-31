@@ -99,4 +99,31 @@ public class MessageManager {
     public void reload() {
         loadMessages();
     }
+    public void forceExtractAllLanguages() {
+        String[] languages = {"en", "vi", "es"};
+        for (String lang : languages) {
+            File langDir = new File(plugin.getDataFolder(), "languages/" + lang);
+            if (!langDir.exists()) langDir.mkdirs();
+            File targetFile = new File(langDir, "messages.yml");
+            boolean needsExtract = !targetFile.exists() || targetFile.length() == 0;
+            String resourcePath = "languages/" + lang + "/messages.yml";
+            if (needsExtract) {
+                plugin.getLogger().info("[TlamPlayerReport] Extracting language: " + resourcePath);
+                try (InputStream in = plugin.getResource(resourcePath)) {
+                    if (in != null) {
+                        java.nio.file.Files.copy(
+                            in,
+                            targetFile.toPath(),
+                            java.nio.file.StandardCopyOption.REPLACE_EXISTING
+                        );
+                        plugin.getLogger().info("[TlamPlayerReport] Language file extracted: " + resourcePath);
+                    } else {
+                        plugin.getLogger().warning("[TlamPlayerReport] Could NOT find " + resourcePath + " in JAR!");
+                    }
+                } catch (Exception ex) {
+                    plugin.getLogger().severe("[TlamPlayerReport] Failed to extract " + resourcePath + ": " + ex.getMessage());
+                }
+            }
+        }
+    }
 }
