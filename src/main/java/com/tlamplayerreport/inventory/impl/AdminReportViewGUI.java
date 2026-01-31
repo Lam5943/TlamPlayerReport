@@ -112,10 +112,8 @@ public class AdminReportViewGUI extends InventoryGUI {
     
     private void openReportDetailsMenu(Player player, Report report) {
         player.closeInventory();
-        player.sendMessage("§6§l=== Report #" + report.getId() + " Details ===");
-        player.sendMessage("§7Reporter: §e" + report.getReporterName());
-        player.sendMessage("§7Type: §e" + report.getType());
-        player.sendMessage("§7Category: §e" + report.getCategory());
+        plugin.getGuiManager().openGUI(new AdminReportStatusGUI(plugin, report), player);
+    }
         
         if (report.getTargetName() != null) {
             player.sendMessage("§7Target: §e" + report.getTargetName());
