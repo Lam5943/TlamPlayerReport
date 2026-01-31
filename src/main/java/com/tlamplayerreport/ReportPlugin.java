@@ -31,7 +31,6 @@ public class ReportPlugin extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
         
-        new MessageManager(this).forceExtractAllLanguages();
         this.configManager = new ConfigManager(this);
         this.messageManager = new MessageManager(this);
         this.messageManager.forceExtractAllLanguages();
