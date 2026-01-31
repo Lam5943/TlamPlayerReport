@@ -12,10 +12,14 @@ public class MainReportGUI extends InventoryGUI {
     private final ReportPlugin plugin;
     
     public MainReportGUI(ReportPlugin plugin) {
-        super(plugin.getConfigManager().getGuiConfig().getString("main-menu.title", "&6&lReport Menu"), 
-              plugin.getConfigManager().getGuiConfig().getInt("main-menu.size", 27));
+        super(
+            org.bukkit.ChatColor.translateAlternateColorCodes('&',
+            plugin.getConfig().getString("settings.menu-title-prefix", "&6&lTLamPlayerReport&r - ")
+            + plugin.getConfigManager().getGuiConfig().getString("main-menu.title", "&6&lReport Menu")
+            ),
+            plugin.getConfigManager().getGuiConfig().getInt("main-menu.size", 27)
+        );
         this.plugin = plugin;
-        
         refresh();
     }
     
