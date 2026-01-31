@@ -1,5 +1,6 @@
 package com.tlamplayerreport.inventory.impl;
 
+import java.util.Collections;
 import com.tlamplayerreport.ReportPlugin;
 import com.tlamplayerreport.data.Report;
 import com.tlamplayerreport.data.ReportStatus;
