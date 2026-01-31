@@ -16,10 +16,14 @@ public class PlayerSelectionGUI extends InventoryGUI {
     private final ReportPlugin plugin;
     
     public PlayerSelectionGUI(ReportPlugin plugin) {
-        super(plugin.getConfigManager().getGuiConfig().getString("player-selection.title", "&6Select Player"), 
-              plugin.getConfigManager().getGuiConfig().getInt("player-selection.size", 54));
+        super(
+            org.bukkit.ChatColor.translateAlternateColorCodes('&',
+                plugin.getConfig().getString("settings.menu-title-prefix", "&6&lTLamPlayerReport&r - ")
+                + plugin.getConfigManager().getGuiConfig().getString("player-selection.title", "&6Select Player")
+            ),
+            plugin.getConfigManager().getGuiConfig().getInt("player-selection.size", 54)
+        );
         this.plugin = plugin;
-        
         refresh();
     }
     
