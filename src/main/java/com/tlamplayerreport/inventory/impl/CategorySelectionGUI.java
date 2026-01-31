@@ -19,11 +19,16 @@ public class CategorySelectionGUI extends InventoryGUI {
     private final Player targetPlayer;
     
     public CategorySelectionGUI(ReportPlugin plugin, ReportType reportType, Player targetPlayer) {
-        super(getCategoryTitle(plugin, reportType), 27);
+        super(
+            org.bukkit.ChatColor.translateAlternateColorCodes('&',
+                plugin.getConfig().getString("settings.menu-title-prefix", "&6&lTLamPlayerReport&r - ")
+                + getCategoryTitle(plugin, reportType)
+            ),
+            27
+        );
         this.plugin = plugin;
         this.reportType = reportType;
         this.targetPlayer = targetPlayer;
-        
         refresh();
     }
     
